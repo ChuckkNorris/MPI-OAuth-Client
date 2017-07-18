@@ -1,6 +1,7 @@
+import { UserService } from './services/user.service';
 import { Component } from '@angular/core';
 import { Http } from "@angular/http";
-import * as Oidc from 'oidc-client';
+
 
 
 @Component({
@@ -9,25 +10,20 @@ import * as Oidc from 'oidc-client';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   constructor(
-    private _http: Http
-  ) {
-    
+    private _userService: UserService
+  ) { }
+  userManager: Oidc.UserManager;
+  ngOnInit() {
+    this.userManager = this._userService.getUserManager();
   }
-  
 
   login() {
-    var config = {
-      authority: "http://localhost:5000",
-      client_id: "js",
-      redirect_uri: "http://localhost:4200",
-      response_type: "id_token token",
-      scope:"openid profile api1",
-      post_logout_redirect_uri : "http://localhost:4200",
-    };
-    let mgr = new Oidc.UserManager(config);
-    console.log(Oidc);
-    mgr.signinRedirect();
-    //this._http.
+    this.userManager.signinRedirect();
+  }
+
+  signOut() {
+    this.userManager.signoutRedirect();
   }
 }
