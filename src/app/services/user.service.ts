@@ -5,8 +5,8 @@ import * as Oidc from 'oidc-client';
 export class UserService {
     getUserManager() {
         let config = {
-            authority: "http://localhost:5000",
-            client_id: "js",
+            authority: "http://authtest.mpiweb.org",
+            client_id: "MpiJavaScriptClient",
             redirect_uri: "http://localhost:4200/user",
             response_type: "id_token token",
             scope:"openid profile email pictureurl employee api1",
