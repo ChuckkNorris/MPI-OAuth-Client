@@ -1,6 +1,6 @@
 
-<button (click)="login()">MPI Login</button>
-<button (click)="signOut()">Sign Out</button>
+<button *ngIf="!isLoggedIn" (click)="login()">MPI Login</button>
+<button *ngIf="isLoggedIn" (click)="signOut()">Sign Out</button>
 
 
  <router-outlet></router-outlet> 

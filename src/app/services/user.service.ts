@@ -3,9 +3,10 @@ import * as Oidc from 'oidc-client';
 
 @Injectable()
 export class UserService {
+    public authorityUrl: string = "https://authtest.mpiweb.org";
     getUserManager() {
         let config = {
-            authority: "http://authtest.mpiweb.org",
+            authority: this.authorityUrl,
             client_id: "MpiJavaScriptClient",
             redirect_uri: "http://localhost:4200/user",
             response_type: "id_token token",
@@ -14,4 +15,6 @@ export class UserService {
         };
         return new Oidc.UserManager(config);
     }
+
+    
 }

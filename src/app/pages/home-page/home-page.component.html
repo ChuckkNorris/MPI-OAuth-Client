@@ -1,5 +1,11 @@
-<h3>Home Page</h3>
+<h2>Home Page</h2>
 <div *ngIf="userDetails">
     {{userDetails | json}}
 </div>
+<h4>Login Status</h4>
 <p>{{message}}</p>
+
+<h4>User Profile</h4>
+<div>
+    {{fullProfile | json}}
+</div>
