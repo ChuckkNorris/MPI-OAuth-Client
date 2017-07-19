@@ -3,7 +3,7 @@ import * as Oidc from 'oidc-client';
 
 @Injectable()
 export class UserService {
-    public authorityUrl: string = "https://authtest.mpiweb.org";
+    public authorityUrl: string =   "https://authtest.mpiweb.org"; // "http://localhost:5000"; //
     getUserManager() {
         let config = {
             authority: this.authorityUrl,
